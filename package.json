@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "cross-env NODE_ENV=developement babel-node server --useLiveData=true",
+    "buildw": "webpack --config webpack.config.dev.babel.js --progress --mode development",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -19,6 +21,11 @@
     "express": "^4.16.2",
     "express-yields": "^1.1.2",
     "fs-extra": "^5.0.0",
+    "html-webpack-plugin": "^3.0.4",
+    "optimist": "^0.6.1",
+    "redux-saga": "^0.16.0",
+    "request": "^2.83.0",
+    "request-promise": "^4.2.2",
     "webpack": "^4.1.0",
     "webpack-dev-middleware": "^3.0.0",
     "webpack-hot-middleware": "^2.21.2"
