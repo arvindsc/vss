@@ -59,6 +59,6 @@ app.get(['/'], function* (req, res) {
     const index = yield fs.readFile('./public/index.html', 'utf-8');
     res.send(index);
 });
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, './public')));
 
 app.listen(port, '0.0.0.0', () => console.info(`App listening on ${port}`));

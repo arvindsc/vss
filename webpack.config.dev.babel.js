@@ -12,7 +12,6 @@ export default {
 
     output: {
         path: path.resolve(__dirname, 'public'),
-        publicPath: '/',
         filename: 'bundle.js'
     },
     plugins: [
@@ -21,7 +20,7 @@ export default {
         new webpack.HotModuleReplacementPlugin(),
         new webpack.DefinePlugin({
             'process.env': {
-                NODE_ENV: 'development',
+                NODE_ENV: JSON.stringify('development'),
                 WEBPACK: true
             }
         }),
@@ -30,16 +29,13 @@ export default {
     resolve: {
         extensions: ['.js', '.json', '.jsx']
     },
-    optimization: {
-
-        splitChunks: {
-            cacheGroups: {
-                commons: {
-                    test: /[\\/]node_modules[\\/]/,
-                    name: "vendors",
-                    chunks: "all"
-                }
+    module:{
+        rules: [
+            {
+              test: /\.(js|jsx)$/,
+              use: 'babel-loader',
+              exclude: /(node_modules)/
             }
-        }
+        ]
     }
 }
